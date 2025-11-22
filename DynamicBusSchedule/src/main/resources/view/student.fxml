@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="application.StudentController"
+      spacing="10"><padding>
+    <Insets top="10" right="10" bottom="10" left="10"/>
+</padding>
+
+    <Label text="Bus Schedule (Read Only)" style="-fx-font-size: 16px; -fx-font-weight: bold;"/>
+    <TableView fx:id="busTable" prefHeight="480">
+        <columns>
+            <TableColumn text="Bus No" fx:id="busNumberCol" prefWidth="100"/>
+            <TableColumn text="Departure" fx:id="departureCol" prefWidth="120"/>
+            <TableColumn text="From" fx:id="fromCol" prefWidth="160"/>
+            <TableColumn text="To" fx:id="toCol" prefWidth="160"/>
+            <TableColumn text="Day" fx:id="dayCol" prefWidth="100"/>
+        </columns>
+    </TableView>
+</VBox>

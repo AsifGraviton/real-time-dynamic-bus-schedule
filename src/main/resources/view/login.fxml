@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="application.LoginController"
+      spacing="20" alignment="CENTER"
+      style="-fx-background-color: linear-gradient(to bottom right, #2c3e50, #3498db);">
+
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <Label text="Dynamic Bus Schedule"
+           style="-fx-font-size: 28px; -fx-font-weight: bold; -fx-text-fill: white;"/>
+
+    <VBox spacing="15" alignment="CENTER">
+        <TextField fx:id="usernameField" promptText="Username"
+                   style="-fx-pref-width: 280; -fx-padding: 12;"/>
+        <PasswordField fx:id="passwordField" promptText="Password"
+                       style="-fx-pref-width: 280; -fx-padding: 12;"/>
+        <Button text="Login" onAction="#handleLogin" defaultButton="true"
+                style="-fx-background-color: #2ecc71; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 12 30;"/>
+        <Label fx:id="statusLabel" style="-fx-text-fill: #e74c3c; -fx-font-weight: bold;"/>
+    </VBox>
+
+
+</VBox>

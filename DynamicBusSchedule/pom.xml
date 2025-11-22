@@ -1,0 +1,53 @@
+<d:project xmlns:d="http://maven.apache.org/POM/4.0.0"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <d:modelVersion>4.0.0</d:modelVersion>
+  <d:groupId>com.example</d:groupId>
+  <d:artifactId>dynamic-bus-schedule</d:artifactId>
+  <d:version>1.0.0</d:version>
+  <d:properties>
+    <d:project.build.sourceEncoding>UTF-8</d:project.build.sourceEncoding>
+    <d:maven.compiler.release>17</d:maven.compiler.release>
+    <d:javafx.version>22.0.2</d:javafx.version>
+  </d:properties>
+
+  <d:dependencies>
+    <!-- JavaFX -->
+    <d:dependency>
+      <d:groupId>org.openjfx</d:groupId>
+      <d:artifactId>javafx-controls</d:artifactId>
+      <d:version>${javafx.version}</d:version>
+    </d:dependency>
+    <d:dependency>
+      <d:groupId>org.openjfx</d:groupId>
+      <d:artifactId>javafx-fxml</d:artifactId>
+      <d:version>${javafx.version}</d:version>
+    </d:dependency>
+
+    <!-- SQLite JDBC -->
+    <d:dependency>
+      <d:groupId>org.xerial</d:groupId>
+      <d:artifactId>sqlite-jdbc</d:artifactId>
+      <d:version>3.46.0.0</d:version>
+    </d:dependency>
+  </d:dependencies>
+
+  <d:build>
+    <d:plugins>
+      <d:plugin>
+        <d:groupId>org.openjfx</d:groupId>
+        <d:artifactId>javafx-maven-plugin</d:artifactId>
+        <d:version>0.0.8</d:version>
+        <d:configuration>
+          <d:mainClass>application.Main</d:mainClass>
+          <d:launcher>app</d:launcher>
+          <d:jlinkZip>false</d:jlinkZip>
+          <d:stripDebug>false</d:stripDebug>
+          <d:noManPages>true</d:noManPages>
+          <d:noHeaderFiles>true</d:noHeaderFiles>
+          <d:addModules>javafx.controls,javafx.fxml</d:addModules>
+        </d:configuration>
+      </d:plugin>
+    </d:plugins>
+  </d:build>
+</d:project>
