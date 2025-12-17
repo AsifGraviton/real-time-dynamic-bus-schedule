@@ -68,7 +68,7 @@ public class AdminController {
         });
 
         // Initialize filters
-        dayFilter.getItems().addAll("All", "Weekday", "Friday", "Holiday");
+        dayFilter.getItems().addAll("All", "Weekday", "Friday", "Saturday");
         dayFilter.getSelectionModel().select("All");
 
         tripFilter.getItems().addAll("All", "Student", "Teacher", "Stuff");
@@ -173,7 +173,7 @@ public class AdminController {
         TextField t3 = new TextField();
         TextField t4 = new TextField();
         ComboBox<String> c5 = new ComboBox<>();
-        c5.getItems().addAll("Weekday", "Friday", "Holiday");
+        c5.getItems().addAll("Weekday", "Friday", "Saturday");
         c5.getSelectionModel().selectFirst();
 
         ComboBox<String> c6 = new ComboBox<>();

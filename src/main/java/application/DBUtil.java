@@ -49,11 +49,11 @@ public class DBUtil {
                 PreparedStatement insB = conn.prepareStatement(
                         "INSERT INTO buses (bus_number, departure_time, from_place, to_place, day_type, trip_for, driver_name, driver_number) VALUES (?,?,?,?,?,?,?,?)");
                 String[][] data = {
-                        {"M3", "7:20 AM", "City", "Campus", "Weekday", "Student", "Michael Johnson", "(555) 123-4567"},
-                        {"M6.4", "7:00 AM", "Campus", "City", "Weekday", "Teacher", "Sarah Williams", "(555) 234-5678"},
-                        {"M2", "8:30 AM", "Campus", "City", "Weekday", "Student", "Robert Davis", "(555) 345-6789"},
-                        {"M18", "3:00 PM", "Campus", "City", "Weekday", "Stuff", "Jennifer Miller", "(555) 456-7890"},
-                        {"M5", "4:30 PM", "City", "Campus", "Weekday", "Student", "David Wilson", "(555) 567-8901"}
+                        {"Bus 17", "7:00 AM", "Campus", "BoroMath", "Weekday", "Student", "Rahman", "01846372857"},
+                        {"Bus 4,20", "7:30 AM", "Campus", "BoroMath", "Weekday", "Student", "Kabir , Sakib", "01946372857,01566372857"},
+                        {"Bus 8", "8:00 AM", "Campus", "BoroMath", "Weekday", "Teacher", "Rahim", "01465372857"},
+                        {"Bus 17", "7:30 AM", "BoroMath", "Campus", "Weekday", "Student", "Rahman", "01846372857"},
+                        {"Bus 4,20", "8:00 AM", "BoroMath", "Campus", "Weekday", "Student", "kabir , Sakib", "01946372857,01566372857"},
                 };
                 for (String[] row : data) {
                     for (int i=0;i<8;i++) insB.setString(i+1, row[i]);

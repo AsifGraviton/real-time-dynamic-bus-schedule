@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?import javafx.geometry.Insets?>
+
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-
 <BorderPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="application.AdminController">
 
     <top>
         <HBox spacing="10" style="-fx-background-color: #34495e; -fx-padding: 15;">
-            <Label text="Admin Panel - Bus Schedule Management"
+            <Label text="Admin Panel - HSTU Bus Schedule Management"
                    style="-fx-text-fill: white; -fx-font-size: 20px; -fx-font-weight: bold;"/>
         </HBox>
     </top>
@@ -17,14 +16,14 @@
     <center>
         <TableView fx:id="busTable" style="-fx-background-color: white;">
             <columns>
-                <TableColumn text="Bus No" fx:id="busNumberCol" prefWidth="80"/>
+                <TableColumn text="Bus No" fx:id="busNumberCol" prefWidth="140"/>
                 <TableColumn text="Departure" fx:id="departureCol" prefWidth="100"/>
                 <TableColumn text="From" fx:id="fromCol" prefWidth="120"/>
                 <TableColumn text="To" fx:id="toCol" prefWidth="120"/>
-                <TableColumn text="Day" fx:id="dayCol" prefWidth="80"/>
-                <TableColumn text="Trip For" fx:id="tripForCol" prefWidth="90"/>
-                <TableColumn text="Driver Name" fx:id="driverNameCol" prefWidth="120"/>
-                <TableColumn text="Driver Number" fx:id="driverNumberCol" prefWidth="120"/>
+                <TableColumn text="Day" fx:id="dayCol" prefWidth="100"/>
+                <TableColumn text="Trip For" fx:id="tripForCol" prefWidth="100"/>
+                <TableColumn text="Driver Name" fx:id="driverNameCol" prefWidth="270"/>
+                <TableColumn text="Driver Number" fx:id="driverNumberCol" prefWidth="300"/>
             </columns>
         </TableView>
     </center>

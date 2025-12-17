@@ -11,24 +11,26 @@
     <padding>
         <Insets top="20" right="20" bottom="20" left="20"/>
     </padding>
+    <!-- Search Bar -->
+    <HBox spacing="10" alignment="CENTER_LEFT" style="-fx-padding: 0 0 10 0;">
+        <Label text="Search:" style="-fx-font-weight: bold;"/>
+        <TextField fx:id="searchField" promptText="Search by bus, route, driver..."
+                   styleClass="search-field" onKeyReleased="#handleSearch"
+                   HBox.hgrow="ALWAYS"/>
+        <Button text="Refresh" onAction="#handleRefresh"
+                style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 8 15;"/>
+    </HBox>
 
-    <VBox spacing="10" style="-fx-background-color: #ecf0f1; -fx-padding: 20; -fx-background-radius: 10;">
-        <Label text="Bus Schedule - Student View"
-               style="-fx-text-fill: #2d3436; -fx-font-size: 24px; -fx-font-weight: bold;"/>
-        <Label text="View all available bus schedules with driver information"
-               style="-fx-text-fill: #636e72;"/>
-    </VBox>
-
-    <TableView fx:id="busTable" prefHeight="500" style="-fx-background-color: white;">
+    <TableView fx:id="busTable" styleClass="table-view" prefHeight="500">
         <columns>
-            <TableColumn text="Bus No" fx:id="busNumberCol" prefWidth="80"/>
+            <TableColumn text="Bus No" fx:id="busNumberCol" prefWidth="140"/>
             <TableColumn text="Departure" fx:id="departureCol" prefWidth="100"/>
             <TableColumn text="From" fx:id="fromCol" prefWidth="120"/>
             <TableColumn text="To" fx:id="toCol" prefWidth="120"/>
-            <TableColumn text="Day" fx:id="dayCol" prefWidth="80"/>
-            <TableColumn text="Trip For" fx:id="tripForCol" prefWidth="90"/>
-            <TableColumn text="Driver Name" fx:id="driverNameCol" prefWidth="120"/>
-            <TableColumn text="Driver Number" fx:id="driverNumberCol" prefWidth="120"/>
+            <TableColumn text="Day" fx:id="dayCol" prefWidth="100"/>
+            <TableColumn text="Trip For" fx:id="tripForCol" prefWidth="100"/>
+            <TableColumn text="Driver Name" fx:id="driverNameCol" prefWidth="270"/>
+            <TableColumn text="Driver Number" fx:id="driverNumberCol" prefWidth="300"/>
         </columns>
     </TableView>
 </VBox>

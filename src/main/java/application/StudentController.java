@@ -2,10 +2,13 @@ package application;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import model.Bus;
 
@@ -22,11 +25,14 @@ public class StudentController {
     @FXML private TableColumn<Bus, String> tripForCol;
     @FXML private TableColumn<Bus, String> driverNameCol;
     @FXML private TableColumn<Bus, String> driverNumberCol;
+    @FXML private TextField searchField; // Add this line
 
     private final ObservableList<Bus> busList = FXCollections.observableArrayList();
+    private FilteredList<Bus> filteredData;
 
     @FXML
     public void initialize() {
+        // Initialize table columns
         busNumberCol.setCellValueFactory(new PropertyValueFactory<>("busNumber"));
         departureCol.setCellValueFactory(new PropertyValueFactory<>("departureTime"));
         fromCol.setCellValueFactory(new PropertyValueFactory<>("fromPlace"));
@@ -64,6 +70,7 @@ public class StudentController {
         });
 
         loadBuses();
+        setupSearchFilter();
     }
 
     private void loadBuses() {
@@ -85,9 +92,66 @@ public class StudentController {
                         rs.getString("driver_number")
                 ));
             }
-            busTable.setItems(busList);
+
+            // Set up filtered list
+            filteredData = new FilteredList<>(busList, p -> true);
+
+            // Wrap the FilteredList in a SortedList
+            SortedList<Bus> sortedData = new SortedList<>(filteredData);
+            sortedData.comparatorProperty().bind(busTable.comparatorProperty());
+
+            // Set the table items
+            busTable.setItems(sortedData);
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    private void setupSearchFilter() {
+        // Add listener to search field
+        searchField.textProperty().addListener((observable, oldValue, newValue) -> {
+            filteredData.setPredicate(bus -> {
+                // If filter text is empty, show all buses
+                if (newValue == null || newValue.isEmpty()) {
+                    return true;
+                }
+
+                // Convert filter text to lower case for case-insensitive search
+                String lowerCaseFilter = newValue.toLowerCase();
+
+                // Check all fields for the search term
+                if (bus.getBusNumber().toLowerCase().contains(lowerCaseFilter)) {
+                    return true;
+                } else if (bus.getFromPlace().toLowerCase().contains(lowerCaseFilter)) {
+                    return true;
+                } else if (bus.getToPlace().toLowerCase().contains(lowerCaseFilter)) {
+                    return true;
+                } else if (bus.getDayType().toLowerCase().contains(lowerCaseFilter)) {
+                    return true;
+                } else if (bus.getTripFor().toLowerCase().contains(lowerCaseFilter)) {
+                    return true;
+                } else if (bus.getDriverName().toLowerCase().contains(lowerCaseFilter)) {
+                    return true;
+                } else if (bus.getDriverNumber().toLowerCase().contains(lowerCaseFilter)) {
+                    return true;
+                } else if (bus.getDepartureTime().toLowerCase().contains(lowerCaseFilter)) {
+                    return true;
+                }
+                return false; // Does not match
+            });
+        });
+    }
+
+    @FXML
+    private void handleSearch() {
+        // This method can be called if you want to trigger search on button click
+        // For real-time search, we're using the textProperty listener above
+    }
+
+    @FXML
+    private void handleRefresh() {
+        loadBuses();
+        searchField.clear(); // Clear search on refresh
     }
 }

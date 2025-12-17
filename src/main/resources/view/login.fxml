@@ -13,7 +13,7 @@
         <Insets top="20" right="20" bottom="20" left="20"/>
     </padding>
 
-    <Label text="Dynamic Bus Schedule"
+    <Label text="HSTU Bus Schedule"
            style="-fx-font-size: 28px; -fx-font-weight: bold; -fx-text-fill: white;"/>
 
     <VBox spacing="15" alignment="CENTER">
